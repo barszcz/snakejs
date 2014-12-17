@@ -1,0 +1,36 @@
+body, ul, li, span {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+ul {
+  width: 760px;
+  height: 760px;
+  border: 5px solid;
+  margin: auto;
+  /*float: left;*/
+}
+
+li {
+  list-style: none;
+  width: 15px;
+  height: 15px;
+  float: left;
+}
+
+.snake {
+  background-color: green;
+}
+
+.apple {
+  background-color: red;
+}
+
+#score {
+  text-align: center;
+  display: block;
+  padding: 5px;
+  font-family: 'Lato', sans-serif;
+  font-size: 30pt;
+}

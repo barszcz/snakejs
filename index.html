@@ -1,0 +1,21 @@
+<html>
+  <head>
+    <title>Snake</title>
+  </head>
+  <body>
+    <pre id="snakegame">
+
+    </pre>
+    <script src="./jquery-2.1.1.js"></script>
+    <script src="./keymaster.js"></script>
+    <script src="./coord.js"></script>
+    <script src="./snake.js"></script>
+    <script src="./board.js"></script>
+    <script src="./snake-view.js"></script>
+
+    <script charset="utf-8">
+      var $section = $("#snakegame");
+      var view = new Snakes.View($section);
+    </script>
+  </body>
+</html>
