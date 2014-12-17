@@ -5,11 +5,12 @@
 
   var Snake = Snakes.Snake = function(board) {
     this.board = board;
-    this.dir = "N";
+    this.dir = Snake.START_DIR;
     this.segments = [new Snakes.Coord(Snake.START_COORD)];
     this.growth = 0;
   }
 
+  Snake.START_DIR = "N";
   Snake.START_COORD = [20,20];
   Snake.GROWTH_COUNTER = 3;
 

@@ -4,12 +4,12 @@
   }
 
 
-  var View = Snakes.View = function ($el) {
-    this.$el = $el;
+  var View = Snakes.View = function (ctx) {
+    this.ctx = ctx;
     this.board = new Snakes.Board();
     this.bindEvent();
     this.makeDisplay();
-    this.game = setInterval(this.step.bind(this), 1);
+    this.game = setInterval(this.step.bind(this), 50);
   };
 
   View.prototype.step = function () {
@@ -42,17 +42,26 @@
   }
 
   View.prototype.makeDisplay = function () {
-    $("li").remove();
-    var boardString = this.board.render();
-    for (var i = 0; i < boardString.length; i++) {
-      if (boardString[i] === 'S') {
-        this.$el.append($("<li class=\"snake\"></li>"));
-      } else if (boardString[i] === '.') {
-        this.$el.append($("<li></li>"));
-      } else if (boardString[i] === 'A'){
-        this.$el.append($("<li class=\"apple\"></li>"));
-      } else {
-        continue;
+    this.ctx.clearRect(0, 0, canvas.width, canvas.height);
+    this.ctx.beginPath();
+    var x, y, img;
+    var boardArr = this.board.render();
+    for (var i = 0; i < boardArr.length; i++) {
+      y = 15 * i;
+      for (var j = 0; j < boardArr.length; j++) {
+        x = 15 * j;
+        img = new Image;
+        switch (boardArr[i][j]) {
+          case 'S':
+            img.src = './tommy.png';
+            break;
+          case 'A':
+            img.src = './jonathan.png';
+            break;
+          default:
+            continue;
+        }
+        this.ctx.drawImage(img, x, y);
       }
     }
   }

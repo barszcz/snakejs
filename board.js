@@ -67,7 +67,7 @@
       renderArr[y][x] = "S";
     });
     renderArr[this.apple.coord.y][this.apple.coord.x] = "A";
-    return renderArr.join('');
+    return renderArr;
   };
 
 }());

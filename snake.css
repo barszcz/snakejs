@@ -4,7 +4,7 @@ body, ul, li, span {
   border: 0;
 }
 
-ul {
+#snakegame {
   width: 760px;
   height: 760px;
   border: 5px solid;
