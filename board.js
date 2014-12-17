@@ -54,22 +54,20 @@
   }
 
   Board.prototype.render = function () {
-    var boardString = ''
+    var renderArr = []
     for (var i = 0; i < this.height; i++) {
+      renderArr[i] = [];
       for (var j = 0; j < this.width; j++) {
-        var isSnake = this.isSnake(j,i);
-        var isApple = this.isApple(j,i);
-        if (isSnake) {
-          boardString += 'S';
-        } else if (isApple){
-          boardString += 'A';
-        } else {
-          boardString += '.';
-        }
+        renderArr[i].push(".");
       }
-      boardString += '\n';
     }
-    return boardString;
+    this.snake.segments.forEach(function (seg) {
+      var x = seg.x;
+      var y = seg.y;
+      renderArr[y][x] = "S";
+    });
+    renderArr[this.apple.coord.y][this.apple.coord.x] = "A";
+    return renderArr.join('');
   };
 
 }());
